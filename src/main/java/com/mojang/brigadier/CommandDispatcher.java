@@ -366,11 +366,6 @@ public class CommandDispatcher<S> {
                 } catch (final RuntimeException ex) {
                     throw CommandSyntaxException.BUILT_IN_EXCEPTIONS.dispatcherParseException().createWithContext(reader, ex.getMessage());
                 }
-                if (reader.canRead()) {
-                    if (reader.peek() != ARGUMENT_SEPARATOR_CHAR) {
-                        throw CommandSyntaxException.BUILT_IN_EXCEPTIONS.dispatcherExpectedArgumentSeparator().createWithContext(reader);
-                    }
-                }
             } catch (final CommandSyntaxException ex) {
                 if (errors == null) {
                     errors = new LinkedHashMap<>();
